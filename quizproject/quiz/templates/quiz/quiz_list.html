@@ -1,0 +1,14 @@
+{% for quiz in quizzes %}
+    <a href="{% url 'take_quiz' quiz.id %}" class="list-group-item d-flex justify-content-between">
+        {{ quiz.title }}
+        {% if quiz.start_at and quiz.start_at > now %}
+            <span class="badge bg-secondary">Not Started</span>
+        {% elif quiz.expire_at and quiz.expire_at < now %}
+            <span class="badge bg-danger">Expired</span>
+        {% else %}
+            <span class="badge bg-success">Active</span>
+        {% endif %}
+    </a>
+{% empty %}
+    <p>No quizzes available.</p>
+{% endfor %}

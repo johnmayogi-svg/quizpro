@@ -1,0 +1,13 @@
+{% extends 'quiz/base.html' %}
+
+{% block title %}Quiz Expired{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>{{ quiz.title }}</h2>
+    <div class="alert alert-danger">
+        This quiz has expired and can no longer be attempted.
+    </div>
+    <a href="{% url 'quiz_list' %}" class="btn btn-primary">Back to Quiz List</a>
+</div>
+{% endblock %}
